@@ -1,0 +1,292 @@
+/* ── App layout ─────────────────────────────────────────────── */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.app-header {
+  text-align: center;
+  padding: 2rem 1rem 1.5rem;
+  border-bottom: 1px solid var(--border, #e2e8f0);
+  background: var(--header-bg, #f8fafc);
+}
+
+.app-header h1 {
+  margin: 0.5rem 0 0.25rem;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.app-header p {
+  margin: 0;
+  color: var(--text-muted, #64748b);
+}
+
+.react-logo {
+  height: 48px;
+  animation: spin 8s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ── Grid ───────────────────────────────────────────────────── */
+.practice-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+  flex: 1;
+}
+
+/* ── Card ───────────────────────────────────────────────────── */
+.card {
+  background: var(--card-bg, #fff);
+  border: 1px solid var(--border, #e2e8f0);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,.06);
+}
+
+.card h2 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.card > p:first-of-type {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--text-muted, #64748b);
+}
+
+/* ── Buttons ────────────────────────────────────────────────── */
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  padding: 0.45rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  background: #4f46e5;
+  color: #fff;
+  transition: background 0.2s;
+}
+
+button:hover:not(:disabled) {
+  background: #4338ca;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+button.secondary {
+  background: var(--card-bg, #fff);
+  color: #4f46e5;
+  border: 1px solid #c7d2fe;
+}
+
+button.secondary:hover:not(:disabled) {
+  background: #eef2ff;
+}
+
+.button-row {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+/* ── Counter ────────────────────────────────────────────────── */
+.count-display {
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 0;
+  color: #4f46e5;
+}
+
+/* ── Todo List ──────────────────────────────────────────────── */
+.todo-form {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.todo-form input {
+  flex: 1;
+  padding: 0.45rem 0.75rem;
+  border: 1px solid var(--border, #e2e8f0);
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.todo-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.5rem;
+  border-radius: 6px;
+  background: var(--row-bg, #f8fafc);
+}
+
+.todo-list li.done span {
+  text-decoration: line-through;
+  color: var(--text-muted, #94a3b8);
+}
+
+.todo-list li span {
+  flex: 1;
+  font-size: 0.9rem;
+}
+
+button.remove {
+  background: transparent;
+  color: #ef4444;
+  font-size: 1.1rem;
+  padding: 0 0.3rem;
+  line-height: 1;
+}
+
+button.remove:hover {
+  background: #fee2e2;
+}
+
+.hint {
+  font-size: 0.8rem;
+  color: var(--text-muted, #94a3b8);
+  margin: 0;
+}
+
+/* ── Stopwatch ──────────────────────────────────────────────── */
+.stopwatch-display {
+  font-size: 2.5rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+  margin: 0;
+  letter-spacing: 0.05em;
+  color: #0f172a;
+}
+
+.lap-list {
+  padding-left: 1.2rem;
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--text-muted, #475569);
+  max-height: 120px;
+  overflow-y: auto;
+}
+
+/* ── Fetch Data ─────────────────────────────────────────────── */
+.post-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.post-list li {
+  padding: 0.6rem 0.75rem;
+  border-radius: 6px;
+  background: var(--row-bg, #f8fafc);
+  font-size: 0.85rem;
+}
+
+.post-list li strong {
+  display: block;
+  text-transform: capitalize;
+  margin-bottom: 0.25rem;
+}
+
+.post-list li p {
+  margin: 0;
+  color: var(--text-muted, #64748b);
+}
+
+.error {
+  color: #dc2626;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* ── Contact Form ───────────────────────────────────────────── */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.contact-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.contact-form input,
+.contact-form select {
+  padding: 0.45rem 0.75rem;
+  border: 1px solid var(--border, #e2e8f0);
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.checkbox-label {
+  flex-direction: row !important;
+  align-items: center;
+  gap: 0.5rem !important;
+}
+
+.submission {
+  background: var(--row-bg, #f0fdf4);
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  padding: 0.75rem;
+  font-size: 0.85rem;
+}
+
+.submission pre {
+  margin: 0.4rem 0 0;
+  white-space: pre-wrap;
+  font-size: 0.8rem;
+}
+
+/* ── Footer ─────────────────────────────────────────────────── */
+.app-footer {
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.85rem;
+  color: var(--text-muted, #64748b);
+  border-top: 1px solid var(--border, #e2e8f0);
+}
+
+.app-footer a {
+  color: #4f46e5;
+  text-decoration: none;
+}
+
+.app-footer a:hover {
+  text-decoration: underline;
+}
+
